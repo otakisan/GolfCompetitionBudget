@@ -10,6 +10,7 @@ import UIKit
 
 class BudgetTableViewController: UITableViewController {
     
+    var budget = Budget()
     var docInteractionController : UIDocumentInteractionController? = nil // 保持しないとクラッシュする
 
     @IBAction func touchInteractionButton(sender: UIBarButtonItem) {
@@ -22,7 +23,7 @@ class BudgetTableViewController: UITableViewController {
     }
     
     func budgetToText() -> String {
-        return "test budget."
+        return self.budget.toDescription()
     }
     
     func writeBudgetToFile() -> NSURL? {
@@ -72,12 +73,7 @@ class BudgetTableViewController: UITableViewController {
         var actItems = [text];
         
         var activityView = UIActivityViewController(activityItems: actItems, applicationActivities: nil)
-        self.presentViewController(activityView, animated: true, completion: {})
-        
-//        UIActivityViewController *activityView = [[[UIActivityViewController alloc] initWithActivityItems:actItems applicationActivities:nil] autorelease];
-//        
-//        [self presentViewController:activityView animated:YES completion:^{
-//        }];
+        self.presentViewController(activityView, animated: true, completion: {NSLog("")})
     }
     
     override func viewDidLoad() {
@@ -100,24 +96,29 @@ class BudgetTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return self.budget.sections.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.budget.sections[section].items.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("defaultBudgetTableViewCell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        cell.textLabel?.text = self.budget.sections[indexPath.section].items[indexPath.row].name
+        cell.detailTextLabel?.text = String(self.budget.sections[indexPath.section].items[indexPath.row].amount)
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.budget.sections[section].name
+    }
 
     /*
     // Override to support conditional editing of the table view.

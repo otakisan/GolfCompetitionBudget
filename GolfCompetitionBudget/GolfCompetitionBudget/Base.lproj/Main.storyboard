@@ -106,6 +106,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="boobySwitch" destination="f33-pk-Fbc" id="RdH-tk-WIm"/>
+                        <outlet property="budgetTotalAmountTextField" destination="bbT-BF-8IS" id="iUN-6g-vjG"/>
+                        <outlet property="ceremonySwitch" destination="St0-zn-mDl" id="GJ3-b6-2C9"/>
+                        <outlet property="closestTextField" destination="CQ1-Fa-G1e" id="p1T-Y7-exn"/>
+                        <outlet property="golfersTextField" destination="n9T-7M-rKD" id="ACP-TK-67x"/>
+                        <outlet property="longestTextField" destination="Vyt-O3-SZy" id="UbC-Lq-6tN"/>
+                        <outlet property="lowestSwitch" destination="Y5L-yT-7iF" id="Tgc-a0-kzL"/>
+                        <outlet property="trophySwitch" destination="dQt-Aj-QL2" id="oXf-1n-10k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTJ-Pu-3iH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,10 +130,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gyS-gE-yff">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultBudgetTableViewCell" textLabel="4Yt-Iv-na7" detailTextLabel="8iS-2Q-Xfx" style="IBUITableViewCellStyleValue1" id="gyS-gE-yff">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gyS-gE-yff" id="lMW-mZ-l3v">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Yt-Iv-na7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8iS-2Q-Xfx">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
