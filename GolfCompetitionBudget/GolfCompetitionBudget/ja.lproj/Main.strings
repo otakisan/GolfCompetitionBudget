@@ -27,7 +27,7 @@
 "XsC-Hw-mQC.text" = "人数";
 
 /* Class = "IBUINavigationItem"; title = "Contexts"; ObjectID = "cAj-vJ-ljF"; */
-"cAj-vJ-ljF.title" = "算出情報";
+"cAj-vJ-ljF.title" = "算出条件";
 
 /* Class = "IBUIBarButtonItem"; title = "Calc"; ObjectID = "obR-h9-Svl"; */
 "obR-h9-Svl.title" = "計算";
