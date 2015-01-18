@@ -10,9 +10,9 @@ import UIKit
 
 class BudgetEngine: NSObject {
     var parameter = BudgetParameter()
-    var calcurator = BudgetCalculator()
+    var calculator = BudgetCalculator()
     
-    func calcurateBudget() -> Budget {
-        return self.calcurator.calcurate(self.parameter)
+    func calculateBudget() -> Budget {
+        return self.calculator.calculate(self.parameter)
     }
 }

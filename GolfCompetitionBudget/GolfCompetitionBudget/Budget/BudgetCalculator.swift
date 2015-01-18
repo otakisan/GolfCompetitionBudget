@@ -10,7 +10,7 @@ import UIKit
 
 class BudgetCalculator: NSObject {
     
-    func calcurate(parameter : BudgetParameter) -> Budget {
+    func calculate(parameter : BudgetParameter) -> Budget {
         
         // 係数を取得
         var rates = self.rates(parameter)

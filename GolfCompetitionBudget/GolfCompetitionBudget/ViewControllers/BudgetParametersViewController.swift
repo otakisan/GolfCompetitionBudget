@@ -62,7 +62,7 @@ class BudgetParametersViewController: UIViewController {
         var bp = budgetParameter()
         var be = BudgetEngine()
         be.parameter = bp
-        return be.calcurateBudget()
+        return be.calculateBudget()
     }
     
 
