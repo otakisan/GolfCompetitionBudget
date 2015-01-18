@@ -16,10 +16,7 @@ class BudgetCalculator: NSObject {
         var rates = self.rates(parameter)
         
         // 全体と乗算し、個別の金額を算出
-        var budgetItems : [(sectionName: String, itemName : String, rate : Double, amount: Double)] = []
-        for rate in rates {
-            budgetItems.append(sectionName:rate.sectionName, itemName:rate.itemName, rate:rate.rate, amount: rate.rate * Double(parameter.budgetTotalAmount))
-        }
+        var budgetItems = self.calc(parameter, rates: rates)
         
         // 予算セクションごとに分類し、予算データを構成
         var budget = self.compose(budgetItems)
@@ -98,12 +95,31 @@ class BudgetCalculator: NSObject {
         return rates
     }
     
+    func calc(parameter : BudgetParameter, rates : [(sectionName: String, itemName : String, rate : Double)]) -> [(sectionName: String, itemName : String, rate : Double, amount: Double)] {
+        
+        var budgetItems : [(sectionName: String, itemName : String, rate : Double, amount: Double)] = [("General", "TotalAmount", 1.0, 0.0)]
+        var totalRate = 0.0
+        var totalAmount = 0.0
+        for rate in rates {
+            let amount = rate.rate * Double(parameter.budgetTotalAmount)
+            budgetItems.append(sectionName:rate.sectionName, itemName:rate.itemName, rate:rate.rate, amount: amount)
+            
+            totalRate += rate.rate
+            totalAmount += amount
+        }
+        
+        budgetItems[0].rate = totalRate
+        budgetItems[0].amount = totalAmount
+        
+        return budgetItems
+    }
+    
     func compose(budgetDetails : [(sectionName: String, itemName : String, rate : Double, amount: Double)]) -> Budget {
         
         var budget = Budget()
         
         // セクション名が変化したら、セクションインスタンスを生成して、配列に足す、みたいにすれば汎用化できる
-        var sectionNames = ["Prize", "Special", "Trophy", "Ceremony"]
+        var sectionNames = ["General", "Prize", "Special", "Trophy", "Ceremony"]
         for sectionNameInner in sectionNames {
             var eachSection = budgetDetails.filter { (sectionName, itemName, rate, amount) -> Bool in
                 return sectionName == sectionNameInner
