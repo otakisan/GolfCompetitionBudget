@@ -37,8 +37,8 @@ class BudgetCalculator: NSObject {
         rateTotalAwards -= rateTrophy
         
         // 特別賞
-        var rateSpecialAwards = rateTotalAwards * 0.5
-        let rateLowest = rateSpecialAwards * (parameter.lowest ? 0.5 : 0.0)
+        var rateSpecialAwards = rateTotalAwards * 0.4
+        let rateLowest = rateSpecialAwards * (parameter.lowest ? 0.4 : 0.0)
         let rateTotalLongest = (rateSpecialAwards - rateLowest) * 0.5
         let rateTotalClosest = rateSpecialAwards - rateLowest - rateTotalLongest
         // 誤差出るけど… 特別賞なしのときに比率がゼロになるように
@@ -59,8 +59,10 @@ class BudgetCalculator: NSObject {
             for prizeOrder in 1...parameter.golfers {
                 // ブービーを考慮しないと…
                 if prizeOrder != parameter.golfers - 1 {
-                    prizeRate *= 0.5
-                    rates.append(sectionName: "Prize", itemName: "Prize\(prizeOrder)", rate: rateNormalAwards * prizeRate)
+                    prizeRate = (rateNormalAwards * 0.3)
+                    rateNormalAwards = (rateNormalAwards - prizeRate)
+                    
+                    rates.append(sectionName: "Prize", itemName: "Prize\(prizeOrder)", rate: Double(prizeRate))
                 }
                 else {
                     rates.append(sectionName: "Prize", itemName: "Booby", rate: rateBooby)
