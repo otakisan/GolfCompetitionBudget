@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16484CE11A6B4194003D1C5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16484CE31A6B4194003D1C5E /* Localizable.strings */; };
+		16484CE71A6B434F003D1C5E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16484CE61A6B434F003D1C5E /* StringExtension.swift */; };
+		16484CEA1A6B588E003D1C5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16484CEC1A6B588E003D1C5E /* InfoPlist.strings */; };
 		1656FD321A6A811700BC0DC1 /* BudgetCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656FD311A6A811700BC0DC1 /* BudgetCalculator.swift */; };
 		1656FD341A6A81A000BC0DC1 /* BudgetParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656FD331A6A819F00BC0DC1 /* BudgetParameter.swift */; };
 		1656FD361A6A821400BC0DC1 /* BudgetEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1656FD351A6A821400BC0DC1 /* BudgetEngine.swift */; };
@@ -34,12 +37,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16484CE21A6B4194003D1C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		16484CE41A6B4197003D1C5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		16484CE61A6B434F003D1C5E /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		16484CEB1A6B588E003D1C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16484CED1A6B5890003D1C5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1656FD311A6A811700BC0DC1 /* BudgetCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetCalculator.swift; sourceTree = "<group>"; };
 		1656FD331A6A819F00BC0DC1 /* BudgetParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetParameter.swift; sourceTree = "<group>"; };
 		1656FD351A6A821400BC0DC1 /* BudgetEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetEngine.swift; sourceTree = "<group>"; };
 		1656FD371A6A856C00BC0DC1 /* BudgetSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetSection.swift; sourceTree = "<group>"; };
 		1656FD391A6A869800BC0DC1 /* BudgetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItem.swift; sourceTree = "<group>"; };
 		1656FD3B1A6AAB5A00BC0DC1 /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		1656FD3D1A6B3C7000BC0DC1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		1656FD3E1A6B3C7000BC0DC1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		16E1DF1C1A69FA1200FD4D74 /* GolfCompetitionBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfCompetitionBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E1DF201A69FA1200FD4D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E1DF211A69FA1200FD4D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16484CE51A6B4311003D1C5E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				16484CE61A6B434F003D1C5E /* StringExtension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		1656FD301A6A803900BC0DC1 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +124,7 @@
 		16E1DF1E1A69FA1200FD4D74 /* GolfCompetitionBudget */ = {
 			isa = PBXGroup;
 			children = (
+				16484CE51A6B4311003D1C5E /* Utilities */,
 				1656FD301A6A803900BC0DC1 /* Budget */,
 				16E1DF441A69FF8D00FD4D74 /* ViewControllers */,
 				16E1DF211A69FA1200FD4D74 /* AppDelegate.swift */,
@@ -114,6 +133,7 @@
 				16E1DF2D1A69FA1200FD4D74 /* LaunchScreen.xib */,
 				16E1DF231A69FA1200FD4D74 /* GolfCompetitionBudget.xcdatamodeld */,
 				16E1DF1F1A69FA1200FD4D74 /* Supporting Files */,
+				16484CE31A6B4194003D1C5E /* Localizable.strings */,
 			);
 			path = GolfCompetitionBudget;
 			sourceTree = "<group>";
@@ -122,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				16E1DF201A69FA1200FD4D74 /* Info.plist */,
+				16484CEC1A6B588E003D1C5E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,6 +236,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 16E1DF131A69FA1200FD4D74;
 			productRefGroup = 16E1DF1D1A69FA1200FD4D74 /* Products */;
@@ -233,8 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				16E1DF2A1A69FA1200FD4D74 /* Main.storyboard in Resources */,
+				16484CE11A6B4194003D1C5E /* Localizable.strings in Resources */,
 				16E1DF2F1A69FA1200FD4D74 /* LaunchScreen.xib in Resources */,
 				16E1DF2C1A69FA1200FD4D74 /* Images.xcassets in Resources */,
+				16484CEA1A6B588E003D1C5E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +285,7 @@
 				16E1DF461A6A012100FD4D74 /* BudgetParametersViewController.swift in Sources */,
 				1656FD3A1A6A869800BC0DC1 /* BudgetItem.swift in Sources */,
 				1656FD381A6A856C00BC0DC1 /* BudgetSection.swift in Sources */,
+				16484CE71A6B434F003D1C5E /* StringExtension.swift in Sources */,
 				16E1DF221A69FA1200FD4D74 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +309,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		16484CE31A6B4194003D1C5E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16484CE21A6B4194003D1C5E /* Base */,
+				16484CE41A6B4197003D1C5E /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		16484CEC1A6B588E003D1C5E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16484CEB1A6B588E003D1C5E /* Base */,
+				16484CED1A6B5890003D1C5E /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		16E1DF281A69FA1200FD4D74 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				16E1DF291A69FA1200FD4D74 /* Base */,
+				1656FD3D1A6B3C7000BC0DC1 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -296,6 +340,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				16E1DF2E1A69FA1200FD4D74 /* Base */,
+				1656FD3E1A6B3C7000BC0DC1 /* ja */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

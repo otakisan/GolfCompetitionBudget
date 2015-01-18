@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  GolfCompetitionBudget
+
+  Created by takashi on 2015/01/18.
+  Copyright (c) 2015年 Takashi Ikeda. All rights reserved.
+*/
+"Prize"="Prize";
+"Special"="Special";
+"Closest"="Closest";
+"Longest"="Longest";
+"Lowest"="Lowest";
+"Trophy"="Trophy";
+"Booby"="Booby";
+"Ceremony"="Ceremony";
+

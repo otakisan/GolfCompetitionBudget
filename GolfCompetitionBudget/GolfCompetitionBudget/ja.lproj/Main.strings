@@ -1,0 +1,39 @@
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "4Yt-Iv-na7"; */
+"4Yt-Iv-na7.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "8iS-2Q-Xfx"; */
+"8iS-2Q-Xfx.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Trophy"; ObjectID = "CF7-mF-Cgo"; */
+"CF7-mF-Cgo.text" = "優勝杯";
+
+/* Class = "IBUILabel"; text = "Ceremony"; ObjectID = "KKs-LG-mQb"; */
+"KKs-LG-mQb.text" = "表彰式";
+
+/* Class = "IBUINavigationItem"; title = "Budget"; ObjectID = "MhP-k9-Eko"; */
+"MhP-k9-Eko.title" = "コンペ予算";
+
+/* Class = "IBUILabel"; text = "Budget"; ObjectID = "OLE-Em-1F1"; */
+"OLE-Em-1F1.text" = "予算";
+
+/* Class = "IBUILabel"; text = "Closest"; ObjectID = "UC2-fm-9xU"; */
+"UC2-fm-9xU.text" = "ニアピン";
+
+/* Class = "IBUILabel"; text = "Booby"; ObjectID = "X4X-tU-59Z"; */
+"X4X-tU-59Z.text" = "ブービー";
+
+/* Class = "IBUILabel"; text = "People"; ObjectID = "XsC-Hw-mQC"; */
+"XsC-Hw-mQC.text" = "人数";
+
+/* Class = "IBUINavigationItem"; title = "Contexts"; ObjectID = "cAj-vJ-ljF"; */
+"cAj-vJ-ljF.title" = "算出情報";
+
+/* Class = "IBUIBarButtonItem"; title = "Calc"; ObjectID = "obR-h9-Svl"; */
+"obR-h9-Svl.title" = "計算";
+
+/* Class = "IBUILabel"; text = "Lowest"; ObjectID = "sOV-Ea-HI0"; */
+"sOV-Ea-HI0.text" = "ベスグロ";
+
+/* Class = "IBUILabel"; text = "Longest"; ObjectID = "z6X-vj-MeG"; */
+"z6X-vj-MeG.text" = "ドラコン";

@@ -110,14 +110,15 @@ class BudgetTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("defaultBudgetTableViewCell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = self.budget.sections[indexPath.section].items[indexPath.row].name
+        let alAndDg = self.budget.sections[indexPath.section].items[indexPath.row].name.splitAlphaAndDigit()
+        cell.textLabel?.text = alAndDg.alphabet.localized() + alAndDg.digit
         cell.detailTextLabel?.text = String(self.budget.sections[indexPath.section].items[indexPath.row].amount)
 
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.budget.sections[section].name
+        return self.budget.sections[section].name.localized()
     }
 
     /*
