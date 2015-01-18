@@ -49,4 +49,9 @@ extension String {
         
         return (al, dg)
     }
+    
+    func splitAlphaAndDigitWithLocalized() -> String {
+        let alAndDg = self.splitAlphaAndDigit()
+        return alAndDg.alphabet.localized() + alAndDg.digit
+    }
 }

@@ -13,6 +13,6 @@ class BudgetItem: NSObject {
     var amount = 0
     
     func toDescription() -> String {
-        return "\(self.name):\(self.amount)"
+        return "\(self.name.splitAlphaAndDigitWithLocalized()):\(self.amount)"
     }
 }

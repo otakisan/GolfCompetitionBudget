@@ -14,7 +14,7 @@ class BudgetSection: NSObject {
     var items : [BudgetItem] = []
     
     func toDescription() -> String {
-        var description = "\(self.name)"
+        var description = "\(self.name.splitAlphaAndDigitWithLocalized())"
         
         for item in self.items {
             description += "\n\(item.toDescription())"

@@ -12,7 +12,7 @@ class Budget: NSObject {
     lazy var sections : [BudgetSection] = []//self.testData()
     
     func toDescription() -> String {
-        var description = "Golf Competition Budget"
+        var description = "GolfCompetitionBudgetReportTitle".localized()
         for section in self.sections {
             description += "\n\(section.toDescription())"
         }
