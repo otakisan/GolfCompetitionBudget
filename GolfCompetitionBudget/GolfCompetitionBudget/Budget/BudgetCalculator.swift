@@ -36,8 +36,8 @@ class BudgetCalculator: NSObject {
         // 特別賞
         var rateSpecialAwards = rateTotalAwards * 0.4
         let rateLowest = rateSpecialAwards * (parameter.lowest ? 0.4 : 0.0)
-        let rateTotalLongest = (rateSpecialAwards - rateLowest) * 0.5
-        let rateTotalClosest = rateSpecialAwards - rateLowest - rateTotalLongest
+        let rateTotalLongest = (parameter.longest > 0 ? (rateSpecialAwards - rateLowest) * 0.5 : 0.0)
+        let rateTotalClosest = (parameter.closest > 0 ? rateSpecialAwards - rateLowest - rateTotalLongest : 0.0)
         // 誤差出るけど… 特別賞なしのときに比率がゼロになるように
         rateSpecialAwards = rateLowest + rateTotalLongest + rateTotalClosest
         
@@ -48,14 +48,14 @@ class BudgetCalculator: NSObject {
         var rates : [(sectionName: String, itemName : String, rate : Double)] = []
         
         // 順位
-        let rateBooby = rateNormalAwards / (parameter.booby ? 15 : 1)
+        let rateBooby = (parameter.booby ? rateNormalAwards / 15.0 : 0.0)
         rateNormalAwards -= rateBooby
         var prizeRate = 1.0
         
         if parameter.golfers > 0 {
             for prizeOrder in 1...parameter.golfers {
                 // ブービーを考慮しないと…
-                if prizeOrder != parameter.golfers - 1 {
+                if !parameter.booby || prizeOrder != parameter.golfers - 1 {
                     prizeRate = (rateNormalAwards * 0.3)
                     rateNormalAwards = (rateNormalAwards - prizeRate)
                     
@@ -65,6 +65,9 @@ class BudgetCalculator: NSObject {
                     rates.append(sectionName: "Prize", itemName: "Booby", rate: rateBooby)
                 }
             }
+            
+            // 残りは全て優勝者に追加する
+            rates[0].rate += rateNormalAwards
         }
         
         // 特別賞
