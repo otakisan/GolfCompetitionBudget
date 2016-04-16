@@ -13,13 +13,13 @@ class BudgetCalculator: NSObject {
     func calculate(parameter : BudgetParameter) -> Budget {
         
         // 係数を取得
-        var rates = self.rates(parameter)
+        let rates = self.rates(parameter)
         
         // 全体と乗算し、個別の金額を算出
-        var budgetItems = self.calc(parameter, rates: rates)
+        let budgetItems = self.calc(parameter, rates: rates)
         
         // 予算セクションごとに分類し、予算データを構成
-        var budget = self.compose(budgetItems)
+        let budget = self.compose(budgetItems)
         
         return budget
     }
@@ -59,10 +59,10 @@ class BudgetCalculator: NSObject {
                     prizeRate = (rateNormalAwards * 0.3)
                     rateNormalAwards = (rateNormalAwards - prizeRate)
                     
-                    rates.append(sectionName: "Prize", itemName: "Prize\(prizeOrder)", rate: Double(prizeRate))
+                    rates.append((sectionName: "Prize", itemName: "Prize\(prizeOrder)", rate: Double(prizeRate)))
                 }
                 else {
-                    rates.append(sectionName: "Prize", itemName: "Booby", rate: rateBooby)
+                    rates.append((sectionName: "Prize", itemName: "Booby", rate: rateBooby))
                 }
             }
             
@@ -71,29 +71,29 @@ class BudgetCalculator: NSObject {
         }
         
         // 特別賞
-        rates.append(sectionName: "Special", itemName: "Lowest", rate: rateLowest)
+        rates.append((sectionName: "Special", itemName: "Lowest", rate: rateLowest))
         
         // ドラコンとニアピンの下記の処理は汎用かできるはず
         // ドラコン
         if parameter.longest > 0 {
             let rateLongest = rateTotalLongest / Double(parameter.longest)
             for longestOrder in 1...parameter.longest {
-                rates.append(sectionName: "Special", itemName: "Longest\(longestOrder)", rate: rateLongest)
+                rates.append((sectionName: "Special", itemName: "Longest\(longestOrder)", rate: rateLongest))
             }
         }
         // ニアピン
         if parameter.closest > 0 {
             let rateClosest = rateTotalClosest / Double(parameter.closest)
             for closestOrder in 1...parameter.closest {
-                rates.append(sectionName: "Special", itemName: "Closest\(closestOrder)", rate: rateClosest)
+                rates.append((sectionName: "Special", itemName: "Closest\(closestOrder)", rate: rateClosest))
             }
         }
         
         // トロフィー
-        rates.append(sectionName: "Trophy", itemName: "Trophy", rate: rateTrophy)
+        rates.append((sectionName: "Trophy", itemName: "Trophy", rate: rateTrophy))
         
         // 表彰式
-        rates.append(sectionName: "Ceremony", itemName: "Ceremony", rate: rateCelemony)
+        rates.append((sectionName: "Ceremony", itemName: "Ceremony", rate: rateCelemony))
         
         return rates
     }
@@ -119,19 +119,19 @@ class BudgetCalculator: NSObject {
     
     func compose(budgetDetails : [(sectionName: String, itemName : String, rate : Double, amount: Double)]) -> Budget {
         
-        var budget = Budget()
+        let budget = Budget()
         
         // セクション名が変化したら、セクションインスタンスを生成して、配列に足す、みたいにすれば汎用化できる
-        var sectionNames = ["General", "Prize", "Special", "Trophy", "Ceremony"]
+        let sectionNames = ["General", "Prize", "Special", "Trophy", "Ceremony"]
         for sectionNameInner in sectionNames {
-            var eachSection = budgetDetails.filter { (sectionName, itemName, rate, amount) -> Bool in
+            let eachSection = budgetDetails.filter { (sectionName, itemName, rate, amount) -> Bool in
                 return sectionName == sectionNameInner
             }
             
-            var bs = BudgetSection()
+            let bs = BudgetSection()
             bs.name = sectionNameInner
             for item in eachSection {
-                var bi = BudgetItem()
+                let bi = BudgetItem()
                 bi.name = item.itemName
                 bi.amount = Int(item.amount)
                 bs.items.append(bi)

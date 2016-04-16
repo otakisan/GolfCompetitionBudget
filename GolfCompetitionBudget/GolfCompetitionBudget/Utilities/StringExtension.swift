@@ -22,16 +22,16 @@ extension String {
     }
     
     func toFloatToInt() -> Int? {
-        return String(format: "%.0f", self.toFloat()).toInt()
+        return Int(String(format: "%.0f", self.toFloat()))
     }
     
     func splitAlphaAndDigit() -> (alphabet : String, digit : String) {
 
-        var regex = NSRegularExpression(pattern: "([a-zA-Z]*)([0-9]*)", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)
+        let regex = try? NSRegularExpression(pattern: "([a-zA-Z]*)([0-9]*)", options: NSRegularExpressionOptions.CaseInsensitive)
         
-        var match = regex?.firstMatchInString(self, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, (self as NSString).length))
+        let match = regex?.firstMatchInString(self, options: NSMatchingOptions.ReportProgress, range: NSMakeRange(0, (self as NSString).length))
         
-        var matches = regex?.matchesInString(self, options: NSMatchingOptions.allZeros, range: NSMakeRange(0, (self as NSString).length))
+        var matches = regex?.matchesInString(self, options: NSMatchingOptions(), range: NSMakeRange(0, (self as NSString).length))
         
         var al = ""
         if let matchAl = match {

@@ -22,10 +22,10 @@ class Budget: NSObject {
     
     func testData() -> [BudgetSection] {
         var sections : [BudgetSection] = []
-        var s1 = BudgetSection()
+        let s1 = BudgetSection()
         s1.name = "section1"
         s1.items = []
-        var item1 = BudgetItem()
+        let item1 = BudgetItem()
         item1.name = "item1"
         item1.amount = 100
         s1.items.append(item1)

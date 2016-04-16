@@ -33,13 +33,13 @@ class BudgetTableViewController: UITableViewController {
         // ドキュメントのパスへのアクセス
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         // ファイル名の宣言
-        var fileName = budgetTextFileName()
+        let fileName = budgetTextFileName()
         // 保存するもの
         let fileObject = budgetToText()
         // 実際の保存
         // fileObject.writeToFile(<#path: String#>, atomically: <#Bool#>, encoding: <#NSStringEncoding#>, error: <#NSErrorPointer#>)
-        var fullpath = "\(documentsPath)+\(fileName)"
-        fileObject.writeToFile(fullpath, atomically: true, encoding: NSUTF8StringEncoding, error: nil)
+        let fullpath = "\(documentsPath)+\(fileName)"
+        let _ = try? fileObject.writeToFile(fullpath, atomically: true, encoding: NSUTF8StringEncoding)
         
         return NSURL(fileURLWithPath: fullpath)
     }
@@ -69,10 +69,10 @@ class BudgetTableViewController: UITableViewController {
     }
     
     func interactionAcitivityView() {
-        var text = budgetToText()
-        var actItems = [text];
+        let text = budgetToText()
+        let actItems = [text];
         
-        var activityView = UIActivityViewController(activityItems: actItems, applicationActivities: nil)
+        let activityView = UIActivityViewController(activityItems: actItems, applicationActivities: nil)
         self.presentViewController(activityView, animated: true, completion: {NSLog("")})
     }
     

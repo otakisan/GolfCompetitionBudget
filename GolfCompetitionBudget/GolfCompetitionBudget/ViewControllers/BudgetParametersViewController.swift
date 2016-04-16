@@ -37,19 +37,19 @@ class BudgetParametersViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if var destVc = segue.destinationViewController as? BudgetTableViewController {
+        if let destVc = segue.destinationViewController as? BudgetTableViewController {
             destVc.budget = self.calcBudget()
         }
     }
     
     func budgetParameter() -> BudgetParameter{
-        var bp = BudgetParameter()
+        let bp = BudgetParameter()
         
         // おそらく、下記の類いの処理はフレームワーク化できるはず
-        bp.budgetTotalAmount = self.budgetTotalAmountTextField.text.toInt() ?? 0
-        bp.golfers = self.golfersTextField.text.toInt() ?? 0
-        bp.longest = self.longestTextField.text.toInt() ?? 0
-        bp.closest = self.closestTextField.text.toInt() ?? 0
+        bp.budgetTotalAmount = Int(self.budgetTotalAmountTextField.text ?? "0") ?? 0
+        bp.golfers = Int(self.golfersTextField.text ?? "0") ?? 0
+        bp.longest = Int(self.longestTextField.text ?? "0") ?? 0
+        bp.closest = Int(self.closestTextField.text ?? "0") ?? 0
         bp.lowest = self.lowestSwitch.on
         bp.booby = self.boobySwitch.on
         bp.trophy = self.trophySwitch.on
@@ -59,8 +59,8 @@ class BudgetParametersViewController: UIViewController {
     }
     
     func calcBudget() -> Budget {
-        var bp = budgetParameter()
-        var be = BudgetEngine()
+        let bp = budgetParameter()
+        let be = BudgetEngine()
         be.parameter = bp
         return be.calculateBudget()
     }
