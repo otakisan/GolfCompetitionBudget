@@ -10,8 +10,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "appicon.png"
+      "filename" : "appicon.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

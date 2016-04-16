@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class BudgetParametersViewController: UIViewController {
 
@@ -19,10 +20,14 @@ class BudgetParametersViewController: UIViewController {
     @IBOutlet weak var trophySwitch: UISwitch!
     @IBOutlet weak var ceremonySwitch: UISwitch!
     
+    var isShowAd = false
+    var interstitial : GADInterstitial?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.loadAd()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +35,11 @@ class BudgetParametersViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.showAd()
+    }
     
     // MARK: - Navigation
 
@@ -39,6 +48,7 @@ class BudgetParametersViewController: UIViewController {
         
         if let destVc = segue.destinationViewController as? BudgetTableViewController {
             destVc.budget = self.calcBudget()
+            self.isShowAd = true
         }
     }
     
@@ -64,6 +74,31 @@ class BudgetParametersViewController: UIViewController {
         be.parameter = bp
         return be.calculateBudget()
     }
-    
 
+    private func loadAd() {
+        self.interstitial = GADInterstitial(adUnitID: "ca-app-pub-3119454746977531/1767548801")
+        let gadRequest = GADRequest()
+        self.interstitial?.loadRequest(gadRequest)
+        self.interstitial?.delegate = self
+    }
+
+    private func showAd() {
+        if self.isShowAd && self.interstitial!.isReady {
+            self.interstitial?.presentFromRootViewController(self)
+        }
+    }
+}
+
+extension BudgetParametersViewController : GADInterstitialDelegate {
+    func interstitialDidDismissScreen(ad: GADInterstitial!){
+        self.loadAd()
+    }
+    
+    func interstitialWillPresentScreen(ad: GADInterstitial!) {
+        self.isShowAd = false
+    }
+    
+    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!){
+        print(error)
+    }
 }
