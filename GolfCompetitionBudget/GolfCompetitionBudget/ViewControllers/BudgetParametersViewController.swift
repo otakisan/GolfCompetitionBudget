@@ -23,6 +23,9 @@ class BudgetParametersViewController: UIViewController {
     var isShowAd = false
     var interstitial : GADInterstitial?
 
+    @IBAction func unwindFromBudgetTableViewController(segue: UIStoryboardSegue) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

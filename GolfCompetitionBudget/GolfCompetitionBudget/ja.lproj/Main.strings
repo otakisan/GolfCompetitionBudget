@@ -37,3 +37,6 @@
 
 /* Class = "IBUILabel"; text = "Longest"; ObjectID = "z6X-vj-MeG"; */
 "z6X-vj-MeG.text" = "ドラコン";
+
+/* Class = "IBUIBarButtonItem"; title = "Retry"; ObjectID = "1aD-fU-Nay"; */
+"1aD-fU-Nay.title" = "再試行";
