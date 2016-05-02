@@ -10,7 +10,7 @@ import UIKit
 
 class BudgetItem: NSObject {
     var name = "(no data)"
-    var amount = 0
+    var amount = 0.0
     
     func toDescription() -> String {
         return "\(self.name.splitAlphaAndDigitWithLocalized()):\(self.amount)"

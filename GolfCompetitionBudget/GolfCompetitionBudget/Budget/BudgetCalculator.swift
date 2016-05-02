@@ -133,7 +133,7 @@ class BudgetCalculator: NSObject {
             for item in eachSection {
                 let bi = BudgetItem()
                 bi.name = item.itemName
-                bi.amount = Int(item.amount)
+                bi.amount = RoundOffToTwoDecimalPlaces(item.amount) // ドル対応
                 bs.items.append(bi)
             }
             
@@ -141,5 +141,9 @@ class BudgetCalculator: NSObject {
         }
         
         return budget
+    }
+    
+    func RoundOffToTwoDecimalPlaces(number : Double) -> Double {
+        return round(number * 100.0) / 100.0
     }
 }

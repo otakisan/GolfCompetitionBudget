@@ -112,13 +112,17 @@ class BudgetTableViewController: UITableViewController {
         // Configure the cell...
         let alAndDg = self.budget.sections[indexPath.section].items[indexPath.row].name.splitAlphaAndDigit()
         cell.textLabel?.text = alAndDg.alphabet.localized() + alAndDg.digit
-        cell.detailTextLabel?.text = String(self.budget.sections[indexPath.section].items[indexPath.row].amount)
+        cell.detailTextLabel?.text = NSString(format: self.stringFormatDependingOnLocale(), self.budget.sections[indexPath.section].items[indexPath.row].amount) as String
 
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.budget.sections[section].name.localized()
+    }
+    
+    private func stringFormatDependingOnLocale() -> String {
+        return NSLocale.currentLocale().localeIdentifier.lowercaseString.containsString("ja") ? "%.00f" : "%.02f"
     }
 
     /*
