@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1631EAC21CD6DC5F00BCDF93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1631EAC11CD6DC5F00BCDF93 /* GoogleService-Info.plist */; };
+		1631EAC71CD6DE8400BCDF93 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631EAC61CD6DE8400BCDF93 /* UIViewControllerExtensions.swift */; };
 		16484CE11A6B4194003D1C5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16484CE31A6B4194003D1C5E /* Localizable.strings */; };
 		16484CE71A6B434F003D1C5E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16484CE61A6B434F003D1C5E /* StringExtension.swift */; };
 		16484CEA1A6B588E003D1C5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16484CEC1A6B588E003D1C5E /* InfoPlist.strings */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1631EAC11CD6DC5F00BCDF93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1631EAC31CD6DD7B00BCDF93 /* GolfCompetitionBudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GolfCompetitionBudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		1631EAC61CD6DE8400BCDF93 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		16484CE21A6B4194003D1C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16484CE41A6B4197003D1C5E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16484CE61A6B434F003D1C5E /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				16484CE61A6B434F003D1C5E /* StringExtension.swift */,
+				1631EAC61CD6DE8400BCDF93 /* UIViewControllerExtensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -111,6 +117,7 @@
 		16E1DF131A69FA1200FD4D74 = {
 			isa = PBXGroup;
 			children = (
+				1631EAC11CD6DC5F00BCDF93 /* GoogleService-Info.plist */,
 				16E1DF1E1A69FA1200FD4D74 /* GolfCompetitionBudget */,
 				16E1DF371A69FA1200FD4D74 /* GolfCompetitionBudgetTests */,
 				16E1DF1D1A69FA1200FD4D74 /* Products */,
@@ -141,6 +148,7 @@
 				16E1DF231A69FA1200FD4D74 /* GolfCompetitionBudget.xcdatamodeld */,
 				16E1DF1F1A69FA1200FD4D74 /* Supporting Files */,
 				16484CE31A6B4194003D1C5E /* Localizable.strings */,
+				1631EAC31CD6DD7B00BCDF93 /* GolfCompetitionBudget-Bridging-Header.h */,
 			);
 			path = GolfCompetitionBudget;
 			sourceTree = "<group>";
@@ -288,6 +296,7 @@
 				16E1DF2F1A69FA1200FD4D74 /* LaunchScreen.xib in Resources */,
 				16E1DF2C1A69FA1200FD4D74 /* Images.xcassets in Resources */,
 				16484CEA1A6B588E003D1C5E /* InfoPlist.strings in Resources */,
+				1631EAC21CD6DC5F00BCDF93 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +366,7 @@
 				1656FD361A6A821400BC0DC1 /* BudgetEngine.swift in Sources */,
 				1656FD3C1A6AAB5A00BC0DC1 /* Budget.swift in Sources */,
 				1656FD321A6A811700BC0DC1 /* BudgetCalculator.swift in Sources */,
+				1631EAC71CD6DE8400BCDF93 /* UIViewControllerExtensions.swift in Sources */,
 				1656FD341A6A81A000BC0DC1 /* BudgetParameter.swift in Sources */,
 				16E1DF251A69FA1200FD4D74 /* GolfCompetitionBudget.xcdatamodeld in Sources */,
 				16E1DF461A6A012100FD4D74 /* BudgetParametersViewController.swift in Sources */,
@@ -507,11 +517,14 @@
 			baseConfigurationReference = EE46B0FF9EEB0FA303E3EBA2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GolfCompetitionBudget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.cafe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GolfCompetitionBudget/GolfCompetitionBudget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -520,11 +533,13 @@
 			baseConfigurationReference = 4BB3AA1A581AD0248CCCC165 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = GolfCompetitionBudget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.cafe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GolfCompetitionBudget/GolfCompetitionBudget-Bridging-Header.h";
 			};
 			name = Release;
 		};

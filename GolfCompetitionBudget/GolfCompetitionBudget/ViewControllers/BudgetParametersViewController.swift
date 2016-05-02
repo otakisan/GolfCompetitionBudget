@@ -41,6 +41,8 @@ class BudgetParametersViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.initAnalysisTracker("算出条件（BudgetParametersViewController）")
+        
         self.showAd()
     }
     
@@ -86,8 +88,12 @@ class BudgetParametersViewController: UIViewController {
     }
 
     private func showAd() {
-        if self.isShowAd && self.interstitial!.isReady {
-            self.interstitial?.presentFromRootViewController(self)
+        if self.isShowAd{
+            if !self.interstitial!.isReady || self.interstitial!.hasBeenUsed {
+                self.loadAd()
+            } else {
+                self.interstitial?.presentFromRootViewController(self)
+            }
         }
     }
 }
